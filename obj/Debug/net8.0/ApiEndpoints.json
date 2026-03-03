@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "Grievence_Management_System_Project.Controllers.StaffController",
+    "Method": "Createstaff",
+    "RelativePath": "api/Staff/createStaff",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "staffRequest",
+        "Type": "Grievance_Management_System.Request.StaffRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grievence_Management_System_Project.Controllers.StaffController",
+    "Method": "GetAllStaffs",
+    "RelativePath": "api/Staff/getAllStaffs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
