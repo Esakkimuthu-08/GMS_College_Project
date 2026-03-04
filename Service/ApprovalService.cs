@@ -1,6 +1,9 @@
-﻿namespace Grievence_Management_System_Project.Service
+﻿using Grievence_Management_System_Project.Repositary.Interfaces;
+using Grievence_Management_System_Project.Service.Interfaces;
+
+namespace Grievence_Management_System_Project.Service
 {
-    public class ApprovalService
+    public class ApprovalService(IApprovalRepositary approvalRepositary) : IApprovalService
     {
     }
 }

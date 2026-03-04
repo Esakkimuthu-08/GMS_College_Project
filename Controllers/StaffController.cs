@@ -11,18 +11,18 @@ namespace Grievence_Management_System_Project.Controllers
     [ApiController]
     public class StaffController(IStaffService staffService) : ControllerBase
     {
-        [HttpPost ("createStaff")]
-        public IActionResult Createstaff([FromBody] StaffRequest staffRequest)
+        [HttpPost("createStaff")]
+        public async Task<IActionResult> Createstaff([FromBody] StaffRequest staffRequest)
         {
-            staffService.CreateStaff(staffRequest);
+            await staffService.CreateStaff(staffRequest);
             return Ok(ErrorConstant.Created);
         }
 
-        [HttpGet ("getAllStaffs")]
+        [HttpGet("getAllStaffs")]
 
         public async Task<IActionResult> GetAllStaffs()
         {
-            return Ok( await staffService.GetAllStaffs());
+            return Ok(await staffService.GetAllStaffs());
         }
     }
 }

@@ -138,3 +138,4 @@ C:\Users\esakk\source\repos\Grievence_Management_System_Project\Grievence_Manage
 C:\Users\esakk\source\repos\Grievence_Management_System_Project\Grievence_Management_System_Project\obj\Debug\net8.0\Grievence_Management_System_Project.pdb
 C:\Users\esakk\source\repos\Grievence_Management_System_Project\Grievence_Management_System_Project\obj\Debug\net8.0\Grievence_Management_System_Project.genruntimeconfig.cache
 C:\Users\esakk\source\repos\Grievence_Management_System_Project\Grievence_Management_System_Project\obj\Debug\net8.0\ref\Grievence_Management_System_Project.dll
+C:\Users\esakk\source\repos\Grievence_Management_System_Project\Grievence_Management_System_Project\obj\Debug\net8.0\Grievence_Management_System_Project.sourcelink.json

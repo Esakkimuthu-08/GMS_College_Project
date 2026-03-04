@@ -9,7 +9,7 @@ namespace Grievence_Management_System_Project.Service
 {
     public class StaffService(IStaffRepositary staffRepositary) : IStaffService
     {
-        public void CreateStaff(StaffRequest request)
+        public async Task CreateStaff(StaffRequest request)
         {
             Staff staff = new Staff
             {
@@ -20,7 +20,7 @@ namespace Grievence_Management_System_Project.Service
                 PhoneNumber = request.PhoneNumber
             };
             
-            staffRepositary.CreateStaff(staff);
+           await staffRepositary.CreateStaff(staff);
         }
 
         public async Task<List<Staff>> GetAllStaffs()

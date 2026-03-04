@@ -5,7 +5,7 @@ namespace Grievence_Management_System_Project.Service.Interfaces
 {
     public interface IStaffService
     {
-        void CreateStaff(StaffRequest staffRequest);
+        Task CreateStaff(StaffRequest staffRequest);
         Task<List<Staff>> GetAllStaffs();
     }
 }

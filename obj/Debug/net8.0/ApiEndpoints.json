@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "Grievence_Management_System_Project.Controllers.AuthController",
+    "Method": "GetAllStaffRequest",
+    "RelativePath": "api/Auth/getAllStaffRequest",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grievence_Management_System_Project.Controllers.AuthController",
+    "Method": "StaffSignup",
+    "RelativePath": "api/Auth/staffSignUp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "staffSignUpRequest",
+        "Type": "Grievance_Management_System.Request.StaffSignUpRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Grievence_Management_System_Project.Controllers.StaffController",
     "Method": "Createstaff",
     "RelativePath": "api/Staff/createStaff",
@@ -23,6 +49,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grievence_Management_System_Project.Controllers.StudentController",
+    "Method": "CreateStudent",
+    "RelativePath": "api/Student/createstudent",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentSignUpRequest",
+        "Type": "Grievance_Management_System.Request.StudentSignUpRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

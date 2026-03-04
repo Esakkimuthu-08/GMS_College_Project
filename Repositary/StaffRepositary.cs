@@ -9,10 +9,10 @@ namespace Grievence_Management_System_Project.Repositary
 {
     public class StaffRepositary(GrievenceDbContext grievenceDbContext) : IStaffRepositary
     {
-        public void CreateStaff(Staff staff)
+        public async Task CreateStaff(Staff staff)
         {
-            grievenceDbContext.Staffs.Add(staff);
-            grievenceDbContext.SaveChanges();
+             await grievenceDbContext.Staffs.AddAsync(staff);
+             await grievenceDbContext.SaveChangesAsync();
         }
 
         public async Task<List<Staff>> GetAllStaffs()

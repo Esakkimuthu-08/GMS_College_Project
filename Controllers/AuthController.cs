@@ -10,12 +10,21 @@ namespace Grievence_Management_System_Project.Controllers
     [ApiController]
     public class AuthController(IAuthService authService) : ControllerBase
     {
-        [HttpPost ("staffSignUp")]
+        [HttpPost("staffSignUp")]
 
-        public IActionResult StaffSignup([FromBody] StaffSignUpRequest staffSignUpRequest)
+        public async Task<IActionResult> StaffSignup([FromBody] StaffSignUpRequest staffSignUpRequest)
         {
-            authService.StaffSignUp(staffSignUpRequest);
+            await authService.StaffSignUp(staffSignUpRequest);
             return Ok(ErrorConstant.Created);
+        }
+
+        [HttpGet("getAllStaffRequest")]
+
+        public async Task<IActionResult> GetAllStaffRequest()
+        {
+           var staffSignUp =  await authService.GetAllStaffSignUp();
+            return Ok(staffSignUp);
+
         }
     }
 }

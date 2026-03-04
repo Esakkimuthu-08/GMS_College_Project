@@ -19,6 +19,10 @@ builder.Services.AddDbContext<GrievenceDbContext>(options =>
     ));
 builder.Services.AddScoped<IStaffRepositary, StaffRepositary>();
 builder.Services.AddScoped<IStaffService, StaffService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IAuthRepositary, AuthRepositary>();
+builder.Services.AddScoped<IApprovalService, ApprovalService>();
+builder.Services.AddScoped<IApprovalRepositary, ApprovalRepositary>();
 
 var app = builder.Build();
 

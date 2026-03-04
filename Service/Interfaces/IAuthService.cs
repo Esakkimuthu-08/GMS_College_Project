@@ -1,9 +1,11 @@
-﻿using Grievance_Management_System.Request;
+﻿using Grievance_Management_System.Auth;
+using Grievance_Management_System.Request;
 
 namespace Grievence_Management_System_Project.Service.Interfaces
 {
     public interface IAuthService
     {
-        public void StaffSignUp(StaffSignUpRequest staffSignUpRequest);
+        Task StaffSignUp(StaffSignUpRequest staffSignUpRequest);
+        Task<List<StaffSignUp>> GetAllStaffSignUp();
     }
 }
