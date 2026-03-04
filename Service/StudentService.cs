@@ -1,0 +1,15 @@
+﻿using Grievance_Management_System.Model;
+using Grievance_Management_System.Request;
+using Grievence_Management_System_Project.Repositary.Interfaces;
+using Grievence_Management_System_Project.Service.Interfaces;
+
+namespace Grievence_Management_System_Project.Service
+{
+    public class StudentService(IStudentRepositary studentRepositary) : IStudentService
+    {
+        public void CreateStudent(StudentSignUpRequest studentSignUpRequest)
+        {
+            
+        }
+    }
+}
