@@ -2,5 +2,6 @@
 {
     public interface IApprovalService
     {
+        Task ApproveStaff()
     }
 }

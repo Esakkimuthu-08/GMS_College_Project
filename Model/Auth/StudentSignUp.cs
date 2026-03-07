@@ -1,5 +1,8 @@
-﻿namespace Grievance_Management_System.Model.Auth
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Grievance_Management_System.Model.Auth
 {
+    [Index(nameof(Email), IsUnique = true)]
     public class StudentSignUp
     {
         public int Id { get; set; }

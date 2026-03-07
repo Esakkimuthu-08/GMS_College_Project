@@ -18,8 +18,7 @@ namespace Grievence_Management_System_Project.Service
                 Email = request.Email,
                 Role = RoleEnum.Admin,
                 PhoneNumber = request.PhoneNumber
-            };
-            
+            };            
            await staffRepositary.CreateStaff(staff);
         }
 

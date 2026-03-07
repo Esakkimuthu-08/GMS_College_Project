@@ -36,7 +36,50 @@
         }
       }
     },
-    "/api/Auth/getAllStaffRequest": {
+    "/api/Auth/getAllStaffsignUp": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/studentSignUp": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentSignUpRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentSignUpRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentSignUpRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/getAllStudentSignUp": {
       "get": {
         "tags": [
           "Auth"
@@ -91,30 +134,11 @@
         }
       }
     },
-    "/api/Student/createstudent": {
-      "post": {
+    "/api/Student/getAllStudents": {
+      "get": {
         "tags": [
           "Student"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StudentSignUpRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/StudentSignUpRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/StudentSignUpRequest"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"

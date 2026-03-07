@@ -1,7 +1,9 @@
 ﻿using Grievance_Management_System.Enum;
+using Microsoft.EntityFrameworkCore;
 
 namespace Grievance_Management_System.Model
 {
+    [Index(nameof(Email), IsUnique = true)]
     public class Staff
     {
         public int Id { get; set; }

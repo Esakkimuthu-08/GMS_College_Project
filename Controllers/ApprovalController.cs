@@ -1,4 +1,5 @@
-﻿using Grievence_Management_System_Project.Service.Interfaces;
+﻿using Grievance_Management_System.Request;
+using Grievence_Management_System_Project.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,8 +9,13 @@ namespace Grievence_Management_System_Project.Controllers
     [ApiController]
     public class ApprovalController(IApprovalService approvalService) : ControllerBase
     {
- 
+        [HttpPost("approveStaff")]
 
-       
+        public async Task<IActionResult> ApproveStaff([FromBody] ApproveStaffDto approveStaffDto)
+        {
+
+        }
+
+
     }
 }

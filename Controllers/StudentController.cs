@@ -10,11 +10,12 @@ namespace Grievence_Management_System_Project.Controllers
     [ApiController]
     public class StudentController(IStudentService studentService) : ControllerBase
     {
-        [HttpPost ("createstudent")]
-        public IActionResult CreateStudent([FromBody] StudentSignUpRequest studentSignUpRequest)
+        [HttpGet("getAllStudents")]
+
+        public async Task<IActionResult> GetAllStudents()
         {
-            studentService.CreateStudent (studentSignUpRequest);
-            return Ok(ErrorConstant.Created);
+            var student = await studentService.GetAllStudents();
+            return Ok(student);
         }
     }
 }

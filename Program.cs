@@ -23,6 +23,8 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAuthRepositary, AuthRepositary>();
 builder.Services.AddScoped<IApprovalService, ApprovalService>();
 builder.Services.AddScoped<IApprovalRepositary, ApprovalRepositary>();
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IStudentRepositary, StudentRepositary>();
 
 var app = builder.Build();
 

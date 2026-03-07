@@ -7,9 +7,9 @@ namespace Grievence_Management_System_Project.Service
 {
     public class StudentService(IStudentRepositary studentRepositary) : IStudentService
     {
-        public void CreateStudent(StudentSignUpRequest studentSignUpRequest)
+        public async Task<List<Student>> GetAllStudents()
         {
-            
+          return await studentRepositary.GetAllStudents();
         }
     }
 }
