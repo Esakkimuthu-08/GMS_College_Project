@@ -1,4 +1,4 @@
-using Grievence_Management_System_Project.AppDbContext;
+﻿using Grievence_Management_System_Project.AppDbContext;
 using Grievence_Management_System_Project.Repositary;
 using Grievence_Management_System_Project.Repositary.Interfaces;
 using Grievence_Management_System_Project.Service;
@@ -25,6 +25,16 @@ builder.Services.AddScoped<IApprovalService, ApprovalService>();
 builder.Services.AddScoped<IApprovalRepositary, ApprovalRepositary>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IStudentRepositary, StudentRepositary>();
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -34,7 +44,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+// ✅ USE THE SAME POLICY NAME
+app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

@@ -5,6 +5,37 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Approval/approveStaff": {
+      "post": {
+        "tags": [
+          "Approval"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveStaffDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveStaffDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveStaffDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Auth/staffSignUp": {
       "post": {
         "tags": [
@@ -149,6 +180,45 @@
   },
   "components": {
     "schemas": {
+      "ApproveStaffDto": {
+        "required": [
+          "phoneNumber",
+          "role",
+          "signupRequestId",
+          "staffCode"
+        ],
+        "type": "object",
+        "properties": {
+          "signupRequestId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "role": {
+            "$ref": "#/components/schemas/RoleEnum"
+          },
+          "staffCode": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "phoneNumber": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RoleEnum": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "StaffRequest": {
         "required": [
           "email",

@@ -1,7 +1,9 @@
-﻿namespace Grievence_Management_System_Project.Service.Interfaces
+﻿using Grievance_Management_System.Request;
+
+namespace Grievence_Management_System_Project.Service.Interfaces
 {
     public interface IApprovalService
     {
-        Task ApproveStaff()
+        Task ApproveStaff(ApproveStaffDto approveStaffDto);
     }
 }
