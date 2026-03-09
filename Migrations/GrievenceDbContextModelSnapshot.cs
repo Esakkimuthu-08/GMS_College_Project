@@ -47,7 +47,7 @@ namespace Grievence_Management_System_Project.Migrations
                         .IsUnique()
                         .HasFilter("[Email] IS NOT NULL");
 
-                    b.ToTable("StaffSignUp");
+                    b.ToTable("StaffSignUp", (string)null);
                 });
 
             modelBuilder.Entity("Grievance_Management_System.Auth.User", b =>
@@ -76,7 +76,7 @@ namespace Grievence_Management_System_Project.Migrations
                         .IsUnique()
                         .HasFilter("[Email] IS NOT NULL");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Grievance_Management_System.Model.Auth.StudentSignUp", b =>
@@ -111,7 +111,7 @@ namespace Grievence_Management_System_Project.Migrations
                         .IsUnique()
                         .HasFilter("[Email] IS NOT NULL");
 
-                    b.ToTable("StudentSignUp");
+                    b.ToTable("StudentSignUp", (string)null);
                 });
 
             modelBuilder.Entity("Grievance_Management_System.Model.Staff", b =>
@@ -143,7 +143,7 @@ namespace Grievence_Management_System_Project.Migrations
                         .IsUnique()
                         .HasFilter("[Email] IS NOT NULL");
 
-                    b.ToTable("Staffs");
+                    b.ToTable("Staffs", (string)null);
                 });
 
             modelBuilder.Entity("Grievance_Management_System.Model.Student", b =>
@@ -177,7 +177,7 @@ namespace Grievence_Management_System_Project.Migrations
 
                     b.HasIndex("StaffId");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("Grievance_Management_System.Model.Student", b =>

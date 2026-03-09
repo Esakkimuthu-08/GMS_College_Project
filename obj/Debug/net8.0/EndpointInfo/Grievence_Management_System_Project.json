@@ -36,6 +36,37 @@
         }
       }
     },
+    "/api/Approval/approveStudent": {
+      "post": {
+        "tags": [
+          "Approval"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveStudentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveStudentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveStudentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Auth/staffSignUp": {
       "post": {
         "tags": [
@@ -199,6 +230,24 @@
           "staffCode": {
             "minLength": 1,
             "type": "string"
+          },
+          "phoneNumber": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApproveStudentDto": {
+        "required": [
+          "phoneNumber",
+          "studentSignUpId"
+        ],
+        "type": "object",
+        "properties": {
+          "studentSignUpId": {
+            "type": "integer",
+            "format": "int32"
           },
           "phoneNumber": {
             "minLength": 1,

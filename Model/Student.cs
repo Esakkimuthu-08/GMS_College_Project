@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Grievance_Management_System.Model;
+using Microsoft.EntityFrameworkCore;
 
-namespace Grievance_Management_System.Model
+namespace Grievence_Management_System_Project.Model
 {
     [Index(nameof(Email), IsUnique = true)]
     public class Student

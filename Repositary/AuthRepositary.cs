@@ -17,7 +17,9 @@ namespace Grievence_Management_System_Project.Repositary
         }
         public async Task<StaffSignUp> StaffEmailExist(string Email)
         {
-            return await grievenceDbContext.StaffSignUp.FirstOrDefaultAsync(email => email.Email == Email);
+            return await grievenceDbContext.StaffSignUp
+                .AsNoTracking()
+                .FirstOrDefaultAsync(email => email.Email == Email);
         }
         public async Task StudentSignUp(StudentSignUp studentSignUp)
         {
@@ -31,16 +33,20 @@ namespace Grievence_Management_System_Project.Repositary
         }
         public async Task<StudentSignUp> StudentEmailExist(string Email)
         {
-           return await grievenceDbContext.StudentSignUp.FirstOrDefaultAsync(email => email.Email == Email);
+            return await grievenceDbContext.StudentSignUp
+                 .AsNoTracking()
+                 .FirstOrDefaultAsync(email => email.Email == Email);
         }
         public async Task<bool> StaffCodeExist(string StaffCode)
         {
-            return await grievenceDbContext.Staffs.AnyAsync(code => code.StaffCode == StaffCode);
+            return await grievenceDbContext.Staffs
+                .AsNoTracking()
+                .AnyAsync(code => code.StaffCode == StaffCode);
         }
 
         public async Task<List<StudentSignUp>> GetAllStudentSignUp()
         {
-            return await grievenceDbContext.StudentSignUp.ToListAsync();    
+            return await grievenceDbContext.StudentSignUp.ToListAsync();
         }
     }
 }

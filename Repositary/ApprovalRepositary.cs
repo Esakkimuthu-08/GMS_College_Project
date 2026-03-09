@@ -1,9 +1,12 @@
 ﻿using Grievance_Management_System.Auth;
 using Grievance_Management_System.Model;
+using Grievance_Management_System.Model.Auth;
 using Grievance_Management_System.Request;
 using Grievence_Management_System_Project.AppDbContext;
+using Grievence_Management_System_Project.Model;
 using Grievence_Management_System_Project.Repositary.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices;
 
 namespace Grievence_Management_System_Project.Repositary
 {
@@ -12,6 +15,7 @@ namespace Grievence_Management_System_Project.Repositary
         public async Task<StaffSignUp> GetStaffRequestId(int id)
         {
             return await grievenceDbContext.StaffSignUp
+                .AsNoTracking()
                 .FirstOrDefaultAsync(s => s.Id == id);
         }
         public async Task AddStaff(Staff staff)
@@ -29,6 +33,30 @@ namespace Grievence_Management_System_Project.Repositary
         public async Task Save()
         {
             await grievenceDbContext.SaveChangesAsync();
+        }
+
+        public async Task<StudentSignUp> GetStudentRequestId(int id)
+        {
+            return await grievenceDbContext.StudentSignUp.
+                AsNoTracking().
+                FirstOrDefaultAsync(s => s.Id == id);
+        }
+
+        public void UpdateStudentRequest(StudentSignUp student)
+        {
+            grievenceDbContext.StudentSignUp.Update(student);
+        }
+
+        public async Task AddStudent(Student student)
+        {
+            await grievenceDbContext.Students.AddAsync(student);
+        }
+
+        public async Task<Staff> GetStaffCode(string code)
+        {
+            return await grievenceDbContext.Staffs
+                .AsNoTracking()
+                .FirstOrDefaultAsync(s => s.StaffCode == code);
         }
     }
 }

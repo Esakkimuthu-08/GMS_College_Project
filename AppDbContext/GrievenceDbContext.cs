@@ -1,6 +1,7 @@
 ﻿using Grievance_Management_System.Auth;
 using Grievance_Management_System.Model;
 using Grievance_Management_System.Model.Auth;
+using Grievence_Management_System_Project.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Grievence_Management_System_Project.AppDbContext

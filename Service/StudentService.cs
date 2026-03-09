@@ -1,5 +1,5 @@
-﻿using Grievance_Management_System.Model;
-using Grievance_Management_System.Request;
+﻿using Grievance_Management_System.Request;
+using Grievence_Management_System_Project.Model;
 using Grievence_Management_System_Project.Repositary.Interfaces;
 using Grievence_Management_System_Project.Service.Interfaces;
 
@@ -9,7 +9,7 @@ namespace Grievence_Management_System_Project.Service
     {
         public async Task<List<Student>> GetAllStudents()
         {
-          return await studentRepositary.GetAllStudents();
+            return await studentRepositary.GetAllStudents();
         }
     }
 }

@@ -18,12 +18,27 @@ namespace Grievence_Management_System_Project.Controllers
             {
                 await approvalService.ApproveStaff(approveStaffDto);
                 return Ok(ErrorConstant.Approved);
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
 
+        [HttpPost("approveStudent")]
 
+        public async Task<IActionResult> ApproveStudent([FromBody] ApproveStudentDto approveStudentDto)
+        {
+            try
+            {
+                await approvalService.ApproveStudent(approveStudentDto);
+                return Ok(ErrorConstant.Created);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

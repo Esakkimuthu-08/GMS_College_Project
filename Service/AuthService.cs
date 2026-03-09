@@ -64,6 +64,7 @@ namespace Grievence_Management_System_Project.Service
             StudentSignUp studentSignUp = new StudentSignUp()
             {
                 RollNo = studentSignUpRequest.RollNo,
+                Name = studentSignUpRequest.Name,
                 Email = studentSignUpRequest.Email,
                 PasswordHash = studentSignUpRequest.PasswordHash,
                 StaffCode = studentSignUpRequest.StaffCode,

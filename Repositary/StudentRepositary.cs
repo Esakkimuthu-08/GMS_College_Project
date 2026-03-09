@@ -1,5 +1,5 @@
-﻿using Grievance_Management_System.Model;
-using Grievence_Management_System_Project.AppDbContext;
+﻿using Grievence_Management_System_Project.AppDbContext;
+using Grievence_Management_System_Project.Model;
 using Grievence_Management_System_Project.Repositary.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,8 +9,7 @@ namespace Grievence_Management_System_Project.Repositary
     {
         public async Task<List<Student>> GetAllStudents()
         {
-         return await grievenceDbContext.Students.ToListAsync();
-
+            return await grievenceDbContext.Students.ToListAsync();
         }
     }
 }
