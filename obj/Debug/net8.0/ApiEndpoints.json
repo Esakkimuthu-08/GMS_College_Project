@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "Grievence_Management_System_Project.Controllers.ApprovalController",
+    "ContainingType": "ApprovalController",
     "Method": "ApproveStaff",
     "RelativePath": "api/Approval/approveStaff",
     "HttpMethod": "POST",
@@ -16,7 +16,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Grievence_Management_System_Project.Controllers.ApprovalController",
+    "ContainingType": "ApprovalController",
     "Method": "ApproveStudent",
     "RelativePath": "api/Approval/approveStudent",
     "HttpMethod": "POST",
@@ -26,6 +26,22 @@
       {
         "Name": "approveStudentDto",
         "Type": "Grievance_Management_System.Request.ApproveStudentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApprovalController",
+    "Method": "Login",
+    "RelativePath": "api/Approval/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "Grievance_Management_System.Request.LoginRequest",
         "IsRequired": true
       }
     ],
@@ -43,7 +59,7 @@
   },
   {
     "ContainingType": "Grievence_Management_System_Project.Controllers.AuthController",
-    "Method": "GetAllStaffSignUp",
+    "Method": "GetAllStudentSignUp",
     "RelativePath": "api/Auth/getAllStudentSignUp",
     "HttpMethod": "GET",
     "IsController": true,

@@ -15,5 +15,7 @@ namespace Grievence_Management_System_Project.Repositary.Interfaces
         Task<bool> StaffCodeExist(string StaffCode);
         Task<List<StudentSignUp>> GetAllStudentSignUp();
 
+        
+
     }
 }

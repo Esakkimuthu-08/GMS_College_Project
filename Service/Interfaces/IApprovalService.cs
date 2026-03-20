@@ -6,5 +6,7 @@ namespace Grievence_Management_System_Project.Service.Interfaces
     {
         Task ApproveStaff(ApproveStaffDto approveStaffDto);
         Task ApproveStudent(ApproveStudentDto approveStudentDto);
+        Task<string> Login(LoginRequest loginRequest);
+
     }
 }

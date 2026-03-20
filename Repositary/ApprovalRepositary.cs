@@ -58,5 +58,14 @@ namespace Grievence_Management_System_Project.Repositary
                 .AsNoTracking()
                 .FirstOrDefaultAsync(s => s.StaffCode == code);
         }
+
+        public async Task<User> GetUserByEmail(string Email)
+        {
+            return await grievenceDbContext.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(email => email.Email == Email);
+        }
+
+       
     }
 }

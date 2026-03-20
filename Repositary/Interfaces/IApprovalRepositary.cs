@@ -18,5 +18,8 @@ namespace Grievence_Management_System_Project.Repositary.Interfaces
         Task AddStudent(Student student);
 
         Task<Staff> GetStaffCode(string code);
+        Task<User> GetUserByEmail(string Email);
+        
+
     }
 }

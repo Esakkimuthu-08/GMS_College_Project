@@ -12,5 +12,6 @@ namespace Grievence_Management_System_Project.Service.Interfaces
         Task<List<StudentSignUp>> GetAllStudentSignUp();
 
 
+
     }
 }

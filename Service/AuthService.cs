@@ -3,6 +3,7 @@ using Grievance_Management_System.Constants;
 using Grievance_Management_System.Model;
 using Grievance_Management_System.Model.Auth;
 using Grievance_Management_System.Request;
+using Grievence_Management_System_Project.Exceptions;
 using Grievence_Management_System_Project.Repositary.Interfaces;
 using Grievence_Management_System_Project.Service.Interfaces;
 
@@ -17,16 +18,12 @@ namespace Grievence_Management_System_Project.Service
             if (EmailExist != null)
             {
                 if (EmailExist.IsApproved)
-                {
-                    throw new Exception(ErrorConstant.AccountExist);
-                }
-                else
-                {
-                    throw new Exception(ErrorConstant.AccountPending);
-                }
+                    throw new AccountExistsException();
+
+                throw new AccountPendingException();
             }
 
-            StaffSignUp staffSignUp = new StaffSignUp()
+            StaffSignUp staffSignUp = new()
             {
                 Name = staffSignUpRequest.Name,
                 Email = staffSignUpRequest.Email,
@@ -44,24 +41,24 @@ namespace Grievence_Management_System_Project.Service
         {
             StudentSignUp student = await authRepositary.StudentEmailExist(studentSignUpRequest.Email);
             bool staffCode = await authRepositary.StaffCodeExist(studentSignUpRequest.StaffCode);
-            
-            if(!staffCode)
+
+            if (!staffCode)
             {
-                throw new Exception(ErrorConstant.NotFound);
+                throw new NotFoundException();
             }
 
             if (student != null)
             {
                 if (student.IsApproved)
                 {
-                    throw new Exception(ErrorConstant.AccountExist);
+                    throw new AccountExistsException();
                 }
                 else
                 {
-                    throw new Exception(ErrorConstant.AccountPending);
+                    throw new AccountPendingException();
                 }
             }
-            StudentSignUp studentSignUp = new StudentSignUp()
+            StudentSignUp studentSignUp = new()
             {
                 RollNo = studentSignUpRequest.RollNo,
                 Name = studentSignUpRequest.Name,
@@ -73,9 +70,11 @@ namespace Grievence_Management_System_Project.Service
             await authRepositary.StudentSignUp(studentSignUp);
         }
 
-        public async  Task<List<StudentSignUp>> GetAllStudentSignUp()
+        public async Task<List<StudentSignUp>> GetAllStudentSignUp()
         {
             return await authRepositary.GetAllStudentSignUp();
         }
+
+
     }
 }
