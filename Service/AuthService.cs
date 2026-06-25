@@ -3,17 +3,17 @@ using Grievance_Management_System.Constants;
 using Grievance_Management_System.Model;
 using Grievance_Management_System.Model.Auth;
 using Grievance_Management_System.Request;
-using Grievence_Management_System_Project.Exceptions;
-using Grievence_Management_System_Project.Repositary.Interfaces;
-using Grievence_Management_System_Project.Service.Interfaces;
+using Grievance_Management_System_Project.Exceptions;
+using Grievance_Management_System_Project.Repository.Interfaces;
+using Grievance_Management_System_Project.Service.Interfaces;
 
-namespace Grievence_Management_System_Project.Service
+namespace Grievance_Management_System_Project.Service
 {
-    public class AuthService(IAuthRepositary authRepositary) : IAuthService
+    public class AuthService(IAuthRepository authRepository) : IAuthService
     {
         public async Task StaffSignUp(StaffSignUpRequest staffSignUpRequest)
         {
-            StaffSignUp EmailExist = await authRepositary.StaffEmailExist(staffSignUpRequest.Email);
+            StaffSignUp EmailExist = await authRepository.StaffEmailExist(staffSignUpRequest.Email);
 
             if (EmailExist != null)
             {
@@ -30,17 +30,17 @@ namespace Grievence_Management_System_Project.Service
                 PasswordHash = staffSignUpRequest.PasswordHash,
                 IsApproved = false
             };
-            await authRepositary.StaffSignUp(staffSignUp);
+            await authRepository.StaffSignUp(staffSignUp);
         }
         public async Task<List<StaffSignUp>> GetAllStaffSignUp()
         {
-            return await authRepositary.GetAllStaffRequest();
+            return await authRepository.GetAllStaffRequest();
         }
 
         public async Task StudentSignUp(StudentSignUpRequest studentSignUpRequest)
         {
-            StudentSignUp student = await authRepositary.StudentEmailExist(studentSignUpRequest.Email);
-            bool staffCode = await authRepositary.StaffCodeExist(studentSignUpRequest.StaffCode);
+            StudentSignUp student = await authRepository.StudentEmailExist(studentSignUpRequest.Email);
+            bool staffCode = await authRepository.StaffCodeExist(studentSignUpRequest.StaffCode);
 
             if (!staffCode)
             {
@@ -67,14 +67,18 @@ namespace Grievence_Management_System_Project.Service
                 StaffCode = studentSignUpRequest.StaffCode,
                 IsApproved = false
             };
-            await authRepositary.StudentSignUp(studentSignUp);
+            await authRepository.StudentSignUp(studentSignUp);
         }
 
         public async Task<List<StudentSignUp>> GetAllStudentSignUp()
         {
-            return await authRepositary.GetAllStudentSignUp();
+            return await authRepository.GetAllStudentSignUp();
         }
 
+        public async Task<List<User>> GetAllUsers()
+        {
+            return await authRepository.GetAllUsers();
+        }
 
     }
 }

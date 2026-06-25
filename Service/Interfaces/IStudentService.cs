@@ -1,7 +1,7 @@
 ﻿using Grievance_Management_System.Request;
-using Grievence_Management_System_Project.Model;
+using Grievance_Management_System_Project.Model;
 
-namespace Grievence_Management_System_Project.Service.Interfaces
+namespace Grievance_Management_System_Project.Service.Interfaces
 {
     public interface IStudentService
     {

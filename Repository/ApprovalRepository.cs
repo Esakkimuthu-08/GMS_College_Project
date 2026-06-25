@@ -1,16 +1,16 @@
 ﻿using Grievance_Management_System.Auth;
-using Grievance_Management_System.Model;
 using Grievance_Management_System.Model.Auth;
 using Grievance_Management_System.Request;
-using Grievence_Management_System_Project.AppDbContext;
+using Grievance_Management_System_Project.AppDbContext;
+using Grievance_Management_System_Project.Model;
+using Grievance_Management_System_Project.Repository.Interfaces;
 using Grievence_Management_System_Project.Model;
-using Grievence_Management_System_Project.Repositary.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.InteropServices;
 
-namespace Grievence_Management_System_Project.Repositary
+namespace Grievence_Management_System_Project.Repository
 {
-    public class ApprovalRepositary(GrievenceDbContext grievenceDbContext) : IApprovalRepositary
+    public class ApprovalRepository(GrievenceDbContext grievenceDbContext) : IApprovalRepository
     {
         public async Task<StaffSignUp> GetStaffRequestId(int id)
         {

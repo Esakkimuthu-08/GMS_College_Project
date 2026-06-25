@@ -15,7 +15,8 @@ namespace Grievance_Management_System.Service
             //A claim is a key-value pair stored inside JWT
             //what info inside the token
             var claims = new[]
-            {
+        {
+
             new Claim("Email", user.Email),
             new Claim("Role", user.Role.ToString())
         };

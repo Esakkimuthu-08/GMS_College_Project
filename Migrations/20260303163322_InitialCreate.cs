@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Grievence_Management_System_Project.Migrations
+namespace Grievance_Management_System_Project.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

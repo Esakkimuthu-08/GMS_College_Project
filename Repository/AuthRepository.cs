@@ -2,13 +2,13 @@
 using Grievance_Management_System.Model;
 using Grievance_Management_System.Model.Auth;
 using Grievance_Management_System.Request;
-using Grievence_Management_System_Project.AppDbContext;
-using Grievence_Management_System_Project.Repositary.Interfaces;
+using Grievance_Management_System_Project.AppDbContext;
+using Grievance_Management_System_Project.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Grievence_Management_System_Project.Repositary
+namespace Grievance_Management_System_Project.Repository
 {
-    public class AuthRepositary(GrievenceDbContext grievenceDbContext) : IAuthRepositary
+    public class AuthRepository(GrievenceDbContext grievenceDbContext) : IAuthRepository
     {
         public async Task StaffSignUp(StaffSignUp staffSignUp)
         {
@@ -47,6 +47,11 @@ namespace Grievence_Management_System_Project.Repositary
         public async Task<List<StudentSignUp>> GetAllStudentSignUp()
         {
             return await grievenceDbContext.StudentSignUp.ToListAsync();
+        }
+
+        public async Task<List<User>> GetAllUsers()
+        {
+           return await grievenceDbContext.Users.ToListAsync();
         }
     }
 }

@@ -48,9 +48,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Grievence_Management_System_Project.Controllers.AuthController",
+    "ContainingType": "Grievance_Management_System_Project.Controllers.AuthController",
     "Method": "GetAllStaffRequest",
-    "RelativePath": "api/Auth/getAllStaffsignUp",
+    "RelativePath": "api/Auth/getAllStaffSignUp",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -58,7 +58,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Grievence_Management_System_Project.Controllers.AuthController",
+    "ContainingType": "Grievance_Management_System_Project.Controllers.AuthController",
     "Method": "GetAllStudentSignUp",
     "RelativePath": "api/Auth/getAllStudentSignUp",
     "HttpMethod": "GET",
@@ -68,7 +68,17 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Grievence_Management_System_Project.Controllers.AuthController",
+    "ContainingType": "Grievance_Management_System_Project.Controllers.AuthController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Auth/getAllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grievance_Management_System_Project.Controllers.AuthController",
     "Method": "StaffSignup",
     "RelativePath": "api/Auth/staffSignUp",
     "HttpMethod": "POST",
@@ -84,7 +94,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Grievence_Management_System_Project.Controllers.AuthController",
+    "ContainingType": "Grievance_Management_System_Project.Controllers.AuthController",
     "Method": "StudentSignUp",
     "RelativePath": "api/Auth/studentSignUp",
     "HttpMethod": "POST",
@@ -94,6 +104,48 @@
       {
         "Name": "studentSignUpRequest",
         "Type": "Grievance_Management_System.Request.StudentSignUpRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grievence_Management_System_Project.Controllers.GrievanceController",
+    "Method": "GetAllGrievances",
+    "RelativePath": "api/Grievance/getAllGrievances",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grievence_Management_System_Project.Controllers.GrievanceController",
+    "Method": "AddGrievance",
+    "RelativePath": "api/Grievance/raiseGrievance",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grievanceRequest",
+        "Type": "Grievence_Management_System_Project.Request.GrievanceRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grievence_Management_System_Project.Controllers.GrievanceController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/Grievance/updateStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateStatusDto",
+        "Type": "Grievence_Management_System_Project.Request.UpdateStatusDto",
         "IsRequired": true
       }
     ],
@@ -126,7 +178,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Grievence_Management_System_Project.Controllers.StudentController",
+    "ContainingType": "Grievance_Management_System_Project.Controllers.StudentController",
     "Method": "GetAllStudents",
     "RelativePath": "api/Student/getAllStudents",
     "HttpMethod": "GET",

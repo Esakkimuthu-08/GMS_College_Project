@@ -1,16 +1,16 @@
-﻿using Grievence_Management_System_Project.Exceptions;
+﻿using Grievance_Management_System_Project.Exceptions;
 
-namespace Grievence_Management_System_Project.Middleware
+namespace Grievance_Management_System_Project.Middleware
 {
     public class ExceptionMiddleware(RequestDelegate next)
     {
-        private readonly RequestDelegate _next = next;
+        private readonly RequestDelegate next = next;
 
         public async Task Invoke(HttpContext context)
         {
             try
             {
-                await _next(context);
+                await next(context);
             }
             catch (AppException ex)
             {

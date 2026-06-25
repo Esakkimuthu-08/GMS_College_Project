@@ -1,6 +1,6 @@
 ﻿using Grievance_Management_System.Constants;
 using Grievance_Management_System.Request;
-using Grievence_Management_System_Project.Service.Interfaces;
+using Grievance_Management_System_Project.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/[controller]")]

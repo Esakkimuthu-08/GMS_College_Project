@@ -1,22 +1,22 @@
 ﻿using Grievance_Management_System.Auth;
 using Grievance_Management_System.Constants;
 using Grievance_Management_System.Enum;
-using Grievance_Management_System.Model;
 using Grievance_Management_System.Model.Auth;
 using Grievance_Management_System.Request;
 using Grievance_Management_System.Service;
-using Grievence_Management_System_Project.Exceptions;
+using Grievance_Management_System_Project.Exceptions;
+using Grievance_Management_System_Project.Model;
+using Grievance_Management_System_Project.Repository.Interfaces;
+using Grievance_Management_System_Project.Service.Interfaces;
 using Grievence_Management_System_Project.Model;
-using Grievence_Management_System_Project.Repositary.Interfaces;
-using Grievence_Management_System_Project.Service.Interfaces;
 
-namespace Grievence_Management_System_Project.Service
+namespace Grievance_Management_System_Project.Service
 {
-    public class ApprovalService(IApprovalRepositary approvalRepositary , TokenService tokenService) : IApprovalService
+    public class ApprovalService(IApprovalRepository approvalRepository, TokenService tokenService) : IApprovalService
     {
         public async Task ApproveStaff(ApproveStaffDto approveStaffDto)
         {
-            StaffSignUp staffRequest = await approvalRepositary
+            StaffSignUp staffRequest = await approvalRepository
                 .GetStaffRequestId(approveStaffDto.SignupRequestId)
                 ?? throw new NotFoundException();
 
@@ -41,18 +41,19 @@ namespace Grievence_Management_System_Project.Service
                 Email = staffRequest.Email,
                 Role = approveStaffDto.Role,
                 StaffCode = approveStaffDto.StaffCode,
-                PhoneNumber = approveStaffDto.PhoneNumber
+                PhoneNumber = approveStaffDto.PhoneNumber,
+                InchargeOf = approveStaffDto.InchargeOf
             };
 
-            await approvalRepositary.AddStaff(staff);
-            approvalRepositary.UpdateStaffRequest(staffRequest);
-            await approvalRepositary.AddUser(user);
-            await approvalRepositary.Save();
+            await approvalRepository.AddStaff(staff);
+            approvalRepository.UpdateStaffRequest(staffRequest);
+            await approvalRepository.AddUser(user);
+            await approvalRepository.Save();
         }
 
         public async Task ApproveStudent(ApproveStudentDto approveStudentDto)
         {
-            StudentSignUp signUpRequest = await approvalRepositary
+            StudentSignUp signUpRequest = await approvalRepository
                 .GetStudentRequestId(approveStudentDto.StudentSignUpId)
                 ?? throw new NotFoundException();
 
@@ -61,7 +62,7 @@ namespace Grievence_Management_System_Project.Service
                 throw new AlreadyApprovedException();
             }
 
-            Staff staff = await approvalRepositary
+            Staff staff = await approvalRepository
                 .GetStaffCode(signUpRequest.StaffCode)
                 ?? throw new NotFoundException();
             signUpRequest.IsApproved = true;
@@ -83,16 +84,16 @@ namespace Grievence_Management_System_Project.Service
                 StaffId = staff.Id
             };
 
-            await approvalRepositary.AddStudent(student);
-            approvalRepositary.UpdateStudentRequest(signUpRequest);
-            await approvalRepositary.AddUser(user);
+            await approvalRepository.AddStudent(student);
+            approvalRepository.UpdateStudentRequest(signUpRequest);
+            await approvalRepository.AddUser(user);
 
-            await approvalRepositary.Save();
+            await approvalRepository.Save();
         }
 
         public async Task<string> Login(LoginRequest loginRequest)
         {
-            var user = await approvalRepositary
+            var user = await approvalRepository
                 .GetUserByEmail(loginRequest.Email)
                 ?? throw new NotFoundException();
 

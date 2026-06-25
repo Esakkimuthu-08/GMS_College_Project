@@ -1,11 +1,11 @@
 ﻿using Grievance_Management_System.Request;
-using Grievence_Management_System_Project.Model;
-using Grievence_Management_System_Project.Repositary.Interfaces;
-using Grievence_Management_System_Project.Service.Interfaces;
+using Grievance_Management_System_Project.Model;
+using Grievance_Management_System_Project.Repository.Interfaces;
+using Grievance_Management_System_Project.Service.Interfaces;
 
-namespace Grievence_Management_System_Project.Service
+namespace Grievance_Management_System_Project.Service
 {
-    public class StudentService(IStudentRepositary studentRepositary) : IStudentService
+    public class StudentService(IStudentRepository studentRepositary) : IStudentService
     {
         public async Task<List<Student>> GetAllStudents()
         {

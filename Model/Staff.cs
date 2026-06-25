@@ -1,8 +1,9 @@
 ﻿using Grievance_Management_System.Enum;
-using Grievence_Management_System_Project.Model;
+using Grievance_Management_System_Project.Enum;
+using Grievance_Management_System_Project.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Grievance_Management_System.Model
+namespace Grievence_Management_System_Project.Model
 {
     [Index(nameof(Email), IsUnique = true)]
     public class Staff
@@ -13,6 +14,7 @@ namespace Grievance_Management_System.Model
         public string Email { get; set; }
         public RoleEnum Role { get; set; }
         public string PhoneNumber { get; set; }
+        public GrievanceCategory InchargeOf { get; set; }
 
         public ICollection<Student> Students { get; set; }
     }

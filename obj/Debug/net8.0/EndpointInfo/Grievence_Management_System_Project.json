@@ -129,7 +129,7 @@
         }
       }
     },
-    "/api/Auth/getAllStaffsignUp": {
+    "/api/Auth/getAllStaffSignUp": {
       "get": {
         "tags": [
           "Auth"
@@ -177,6 +177,92 @@
         "tags": [
           "Auth"
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/getAllUsers": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Grievance/raiseGrievance": {
+      "post": {
+        "tags": [
+          "Grievance"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrievanceRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrievanceRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrievanceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Grievance/getAllGrievances": {
+      "get": {
+        "tags": [
+          "Grievance"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Grievance/updateStatus": {
+      "put": {
+        "tags": [
+          "Grievance"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStatusDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStatusDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStatusDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -244,6 +330,7 @@
     "schemas": {
       "ApproveStaffDto": {
         "required": [
+          "inchargeOf",
           "phoneNumber",
           "role",
           "signupRequestId",
@@ -265,6 +352,9 @@
           "phoneNumber": {
             "minLength": 1,
             "type": "string"
+          },
+          "inchargeOf": {
+            "$ref": "#/components/schemas/GrievanceCategory"
           }
         },
         "additionalProperties": false
@@ -286,6 +376,50 @@
           }
         },
         "additionalProperties": false
+      },
+      "GrievanceCategory": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "GrievanceRequest": {
+        "required": [
+          "description",
+          "grievanceCategory",
+          "subject"
+        ],
+        "type": "object",
+        "properties": {
+          "grievanceCategory": {
+            "$ref": "#/components/schemas/GrievanceCategory"
+          },
+          "subject": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrievanceStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "LoginRequest": {
         "required": [
@@ -402,6 +536,23 @@
           "staffCode": {
             "minLength": 1,
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateStatusDto": {
+        "required": [
+          "grievanceId",
+          "grievanceStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "grievanceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "grievanceStatus": {
+            "$ref": "#/components/schemas/GrievanceStatus"
           }
         },
         "additionalProperties": false

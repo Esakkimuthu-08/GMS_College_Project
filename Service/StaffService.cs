@@ -1,13 +1,13 @@
 ﻿using Grievance_Management_System.Enum;
-using Grievance_Management_System.Model;
 using Grievance_Management_System.Request;
-using Grievence_Management_System_Project.Repositary.Interfaces;
-using Grievence_Management_System_Project.Service.Interfaces;
+using Grievance_Management_System_Project.Repository.Interfaces;
+using Grievance_Management_System_Project.Service.Interfaces;
+using Grievence_Management_System_Project.Model;
 using System.Threading.Tasks;
 
-namespace Grievence_Management_System_Project.Service
+namespace Grievance_Management_System_Project.Service
 {
-    public class StaffService(IStaffRepositary staffRepositary) : IStaffService
+    public class StaffService(IStaffRepository staffRepository) : IStaffService
     {
         public async Task CreateStaff(StaffRequest request)
         {
@@ -19,12 +19,12 @@ namespace Grievence_Management_System_Project.Service
                 Role = RoleEnum.Admin,
                 PhoneNumber = request.PhoneNumber
             };            
-           await staffRepositary.CreateStaff(staff);
+           await staffRepository.CreateStaff(staff);
         }
 
         public async Task<List<Staff>> GetAllStaffs()
         {
-             return await staffRepositary.GetAllStaffs();
+             return await staffRepository.GetAllStaffs();
         }
     }
 }

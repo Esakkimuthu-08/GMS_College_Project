@@ -1,12 +1,12 @@
 ﻿using Grievance_Management_System.Auth;
-using Grievance_Management_System.Model;
 using Grievance_Management_System.Model.Auth;
 using Grievance_Management_System.Request;
+using Grievance_Management_System_Project.Model;
 using Grievence_Management_System_Project.Model;
 
-namespace Grievence_Management_System_Project.Repositary.Interfaces
+namespace Grievance_Management_System_Project.Repository.Interfaces
 {
-    public interface IApprovalRepositary
+    public interface IApprovalRepository
     {
         Task<StaffSignUp> GetStaffRequestId(int id);
         Task<StudentSignUp> GetStudentRequestId(int id);

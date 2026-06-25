@@ -1,10 +1,10 @@
 ﻿using Grievance_Management_System.Constants;
 using Grievance_Management_System.Request;
-using Grievence_Management_System_Project.Service.Interfaces;
+using Grievance_Management_System_Project.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Grievence_Management_System_Project.Controllers
+namespace Grievance_Management_System_Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,8 +16,8 @@ namespace Grievence_Management_System_Project.Controllers
             await authService.StaffSignUp(staffSignUpRequest);
             return Ok(new { message = ErrorConstant.Created });
         }
-        [AllowAnonymous]
-        [HttpGet("getAllStaffsignUp")]
+        
+        [HttpGet("getAllStaffSignUp")]
         public async Task<IActionResult> GetAllStaffRequest()
         {
             var staffSignUp = await authService.GetAllStaffSignUp();
@@ -36,6 +36,14 @@ namespace Grievence_Management_System_Project.Controllers
         {
             var studentSignUp = await authService.GetAllStudentSignUp();
             return Ok(studentSignUp);
+        }
+
+        [HttpGet("getAllUsers")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var Users = await authService.GetAllUsers();
+            return Ok(Users);
+            
         }
     }
 }
